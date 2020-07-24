@@ -7,15 +7,16 @@ Run your own recursive DNS resolver
 
 `sudo mv  /etc/unbound /etc/unbound.dist`
 
-mkdir /etc/unbound
+`mkdir /etc/unbound`
 
-chown unbound.unbound /etc/unbound
+`chown unbound.unbound /etc/unbound`
 
 
-sudo -u unbound unbound-control-setup
+`sudo -u unbound unbound-control-setup`
 
-sudo curl --output /etc/unbound/root.hints https://www.internic.net/domain/named.cache
+`sudo curl --output /etc/unbound/root.hints https://www.internic.net/domain/named.cache`
 
+```
 server:
     interface: 127.0.0.1
     interface: ::0
@@ -32,10 +33,10 @@ log-time-ascii: yes
 # logfile: /var/log/unbound
 
 log-queries: yes
+```
 
 
+`sudo unbound-checkconf`
 
-sudo unbound-checkconf
 
-
-sudo /etc/init.d/unbound start
+`sudo /etc/init.d/unbound start`
